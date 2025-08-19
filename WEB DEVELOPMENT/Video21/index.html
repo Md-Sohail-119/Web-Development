@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Specificity & Cascade</title>
+    <!-- Important Keyword > Inline Style > ID Selector > Class or Attribute Selector > Element Selector > Universal Selector -->
+    <style>
+        /* The specificity of element selector is 1 */
+        h2 {
+            color: green;
+            text-align: center;
+        }
+
+        /* The specificity of class selector is 10 */
+        .yellow {
+            color: yellow;
+        }
+
+        /* The specificity of this selector is 1 + 10 = 11 */
+        h2.cpurple {
+            color: purple;
+        }
+
+        /* The specificity of class selector is 10 */
+        .cred {
+            color: red;
+        }
+
+        /* This is attribute selector. The specificity of this selector is 10 */
+        [data-x=a] {
+            color: aqua;
+        }
+
+        /* Important keyword is used in this. The specificity of this selector is 10000 */
+        /* h2{
+            color: maroon !important;
+        } */
+
+        /* The specificity of ID Selector is 100 */
+        #heading {
+            color: rgb(233, 129, 11);
+        }
+
+        /* The specificity of this selector is 1 + 10 + 10 + 10 + 10 = 41 */
+        a.harryclass.rohan-class[href]:hover{
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <!-- The specificity of Inline Style is 1000 -->
+        <h2 id="heading" class="yellow cred cpurple" style="color: blue;" data-x="a">This is first heading</h2>
+    </div>
+</body>
+
+</html>
